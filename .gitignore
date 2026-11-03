@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+mlflow.db
+mlartifacts/
+mlruns/
+data/raw/
+*.log
+.DS_Store
+data/processed/importancias_tmp.csv
+mlflow_server.log
+entrega/

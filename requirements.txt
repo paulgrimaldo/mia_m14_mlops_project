@@ -1,0 +1,14 @@
+# Entorno de desarrollo / entrenamiento / drift (Python 3.13). Versiones fijadas.
+mlflow==3.17.2
+scikit-learn==1.9.1
+xgboost==3.4.1
+lightgbm==4.7.0
+pandas==3.1.0
+numpy==2.5.4
+scipy==1.18.1
+matplotlib==3.11.2
+pytest==9.2.0
+fastapi==0.162.0
+uvicorn==0.54.0
+pydantic==2.14.2
+httpx==0.28.1
