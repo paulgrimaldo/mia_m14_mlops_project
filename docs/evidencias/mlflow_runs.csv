@@ -1,0 +1,9 @@
+run_id,run,familia,imputacion,val_f1,test_f1,test_recall,test_precision,test_auc,nrmse_imputacion,umbral
+e94d8168b64b4c128eda37c93a0894cd,xgb_mice_d3,xgboost,mice,0.6307,0.6221,0.7562,0.5284,0.9164,0.3011,0.3868
+02a53654456f44a3ba34db960851c068,xgb_mice_d6,xgboost,mice,0.6205,0.6493,0.7,0.6054,0.9162,0.3011,0.3648
+e7eb925788a2483bb6379e958ce42718,lgbm_mice_l31,lightgbm,mice,0.619,0.6607,0.6875,0.6358,0.9141,0.3011,0.4103
+4dfdb9f2e7b544a19d5c5bd8613a3fb4,lgbm_mice_l7,lightgbm,mice,0.6133,0.6463,0.6625,0.631,0.9196,0.3011,0.5258
+67024c6ec17c480ca680eed73e6b367b,lgbm_mice_l15,lightgbm,mice,0.6067,0.6549,0.6938,0.6201,0.9184,0.3011,0.5018
+937175e0e4bf462f9a3a8ec058b0f6c4,xgb_mediana_d4,xgboost,mediana,0.604,0.628,0.6438,0.6131,0.9063,1.0022,0.469
+2021f70ef6c3439cb427fd64a6acdafa,xgb_mice_d4,xgboost,mice,0.6038,0.6316,0.7125,0.5672,0.9162,0.3011,0.4249
+5cde9fa721a44ce5965a4ff54d07af52,lgbm_sin_imputar_l15,lightgbm,ninguna,0.5744,0.5988,0.6062,0.5915,0.8993,,0.5065
