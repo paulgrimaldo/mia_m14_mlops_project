@@ -1,0 +1,43 @@
+{
+  "perfiles_raw": 3745,
+  "perfiles_unicos": 3598,
+  "duplicados_reales": 178,
+  "duplicados_detectados": 147,
+  "precision_dedup": 1.0,
+  "recall_dedup": 0.826,
+  "filas_jugador_temporada": 6891,
+  "filas_descartadas_sin_etiqueta": 22,
+  "jugadores_con_2_equipos_misma_temporada": 432,
+  "pct_faltantes": {
+    "temporada": 0.0,
+    "categoria_sub": 0.0,
+    "genero": 0.0,
+    "trimestre_nacimiento": 0.0,
+    "edad_anios": 0.0,
+    "posicion": 0.0,
+    "altura_cm": 12.0,
+    "peso_kg": 12.0,
+    "imc": 21.9,
+    "sprint_30m_s": 35.1,
+    "salto_cmj_cm": 33.7,
+    "yoyo_m": 41.4,
+    "agilidad_s": 31.7,
+    "tecnica_score": 15.3,
+    "partidos": 14.0,
+    "goles": 14.0,
+    "asistencias": 14.0,
+    "ppm_equipo": 5.8,
+    "anios_en_academia": 9.7,
+    "n_clubes_temporada": 0.0,
+    "talento": 0.0,
+    "talento_b": 0.0
+  },
+  "tasa_talento": 0.144,
+  "pct_faltantes_por_temporada_yoyo": {
+    "2021": 51.0,
+    "2022": 45.6,
+    "2023": 39.3,
+    "2024": 36.5,
+    "2025": 29.7
+  }
+}
