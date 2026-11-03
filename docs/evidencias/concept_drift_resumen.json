@@ -1,0 +1,13 @@
+{
+  "f1_base": 0.622,
+  "umbral_alarma": 0.522,
+  "k_lotes": 3,
+  "lote_cambio_real": 7,
+  "lote_alarma": 9,
+  "lote_alarma_con_retraso_etiquetas": 12,
+  "retraso_etiquetas_lotes": 3,
+  "falsas_alarmas_sin_deriva_pct": 0.0,
+  "f1_antes": 0.589,
+  "f1_despues": 0.397,
+  "data_drift_en_verde_todos_los_lotes": true
+}

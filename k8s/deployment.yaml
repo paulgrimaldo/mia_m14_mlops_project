@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: talento-api
+  namespace: talento-sc
+  labels:
+    app: talento-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: talento-api
+  template:
+    metadata:
+      labels:
+        app: talento-api
+    spec:
+      containers:
+        - name: api
+          image: talento-sc-api:1.0
+          imagePullPolicy: IfNotPresent   # imagen construida localmente
+          ports:
+            - containerPort: 8000
+          env:
+            - name: POD_NAME              # nombre del pod que atiende (Downward API)
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          readinessProbe:
+            httpGet: {path: /health, port: 8000}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /health, port: 8000}
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: "1", memory: 1Gi}

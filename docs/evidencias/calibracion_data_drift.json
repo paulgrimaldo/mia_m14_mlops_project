@@ -1,0 +1,44 @@
+{
+  "n_simulaciones": 200,
+  "tam_lote": 500,
+  "umbrales": {
+    "alfa": 0.01,
+    "d_min": 0.1,
+    "psi": 0.25,
+    "delta_nulos": 0.1,
+    "fraccion_rojo": 0.2
+  },
+  "falsa_alarma_variable_individual_pct": {
+    "categoria_sub": 0.0,
+    "edad_anios": 0.0,
+    "altura_cm": 0.0,
+    "peso_kg": 0.0,
+    "imc": 0.0,
+    "sprint_30m_s": 0.0,
+    "salto_cmj_cm": 0.0,
+    "yoyo_m": 0.0,
+    "agilidad_s": 0.0,
+    "tecnica_score": 0.0,
+    "partidos": 0.0,
+    "goles": 0.0,
+    "asistencias": 0.0,
+    "ppm_equipo": 0.0,
+    "anios_en_academia": 0.0,
+    "genero": 0.0,
+    "posicion": 0.0,
+    "trimestre_nacimiento": 0.0
+  },
+  "mismo_origen": {
+    "fraccion_media": 0.0,
+    "fraccion_max": 0.0,
+    "lotes_rojos_pct": 0.0
+  },
+  "deriva_fuerte": {
+    "fraccion_media": 0.333,
+    "lotes_rojos_pct": 100.0
+  },
+  "solo_faltantes": {
+    "fraccion_media": 0.222,
+    "lotes_rojos_pct": 100.0
+  }
+}
