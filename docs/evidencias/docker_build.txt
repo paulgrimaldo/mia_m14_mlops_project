@@ -1,0 +1,238 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 942B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim
+#2 DONE 0.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 137B done
+#3 DONE 0.0s
+
+#4 [ 1/11] FROM docker.io/library/python:3.13-slim@sha256:ae14d4ce8771606477a81446e7ef429edd6762305fc50c84507c1041fa8285d1
+#4 resolve docker.io/library/python:3.13-slim@sha256:ae14d4ce8771606477a81446e7ef429edd6762305fc50c84507c1041fa8285d1 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 565.94kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 2/11] RUN apt-get update && apt-get install -y --no-install-recommends libgomp1     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [ 3/11] WORKDIR /app
+#7 CACHED
+
+#8 [ 4/11] COPY requirements-serving.txt .
+#8 DONE 0.0s
+
+#9 [ 5/11] RUN pip install --no-cache-dir -r requirements-serving.txt
+#9 1.736 Collecting mlflow-skinny==3.17.2 (from -r requirements-serving.txt (line 4))
+#9 2.192   Downloading mlflow_skinny-3.17.2-py3-none-any.whl.metadata (51 kB)
+#9 2.445 Collecting cloudpickle==3.1.2 (from -r requirements-serving.txt (line 5))
+#9 2.589   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+#9 2.814 Collecting scikit-learn==1.9.1 (from -r requirements-serving.txt (line 6))
+#9 2.956   Downloading scikit_learn-1.9.1-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (9.3 kB)
+#9 3.191 Collecting xgboost-cpu==3.4.1 (from -r requirements-serving.txt (line 7))
+#9 3.334   Downloading xgboost_cpu-3.4.1-py3-none-manylinux_2_28_aarch64.whl.metadata (2.5 kB)
+#9 3.425 Collecting lightgbm==4.7.0 (from -r requirements-serving.txt (line 8))
+#9 3.569   Downloading lightgbm-4.7.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (18 kB)
+#9 3.777 Collecting pandas==3.1.0 (from -r requirements-serving.txt (line 9))
+#9 3.920   Downloading pandas-3.1.0-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (18 kB)
+#9 4.129 Collecting numpy==2.5.4 (from -r requirements-serving.txt (line 10))
+#9 4.283   Downloading numpy-2.5.4-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (6.6 kB)
+#9 4.409 Collecting scipy==1.18.1 (from -r requirements-serving.txt (line 11))
+#9 4.552   Downloading scipy-1.18.1-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (62 kB)
+#9 4.719 Collecting fastapi==0.162.0 (from -r requirements-serving.txt (line 12))
+#9 4.865   Downloading fastapi-0.162.0-py3-none-any.whl.metadata (26 kB)
+#9 4.973 Collecting uvicorn==0.54.0 (from -r requirements-serving.txt (line 13))
+#9 5.111   Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+#9 5.239 Collecting pydantic==2.14.2 (from -r requirements-serving.txt (line 14))
+#9 5.388   Downloading pydantic-2.14.2-py3-none-any.whl.metadata (137 kB)
+#9 5.625 Collecting anyio!=4.15.0,<5,>=3.6.2 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 5.765   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+#9 5.856 Collecting cachetools<8,>=5.0.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 6.002   Downloading cachetools-7.2.8-py3-none-any.whl.metadata (5.5 kB)
+#9 6.092 Collecting click<9,>=7.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 6.235   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 6.344 Collecting databricks-sdk<1,>=0.20.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 6.485   Downloading databricks_sdk-0.159.0-py3-none-any.whl.metadata (44 kB)
+#9 6.597 Collecting gitpython<4,>=3.1.9 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 6.745   Downloading gitpython-3.2.1-py3-none-any.whl.metadata (13 kB)
+#9 6.843 Collecting importlib_metadata!=4.7.0,<10,>=3.7.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 6.994   Downloading importlib_metadata-9.1.0-py3-none-any.whl.metadata (4.5 kB)
+#9 7.089 Collecting opentelemetry-api<3,>=1.9.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 7.227   Downloading opentelemetry_api-1.45.2-py3-none-any.whl.metadata (1.4 kB)
+#9 7.316 Collecting opentelemetry-proto<3,>=1.9.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 7.456   Downloading opentelemetry_proto-1.45.2-py3-none-any.whl.metadata (2.3 kB)
+#9 7.548 Collecting opentelemetry-sdk<3,>=1.9.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 7.689   Downloading opentelemetry_sdk-1.45.2-py3-none-any.whl.metadata (1.6 kB)
+#9 7.766 Collecting packaging<27 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 7.907   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#9 8.061 Collecting protobuf<8,>=3.12.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 8.204   Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_aarch64.whl.metadata (595 bytes)
+#9 8.287 Collecting python-dotenv<2,>=0.19.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 8.428   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+#9 8.541 Collecting pyyaml<7,>=5.1 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 8.687   Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.4 kB)
+#9 8.789 Collecting requests<3,>=2.17.3 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 8.933   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#9 9.022 Collecting sqlparse<1,>=0.4.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 9.164   Downloading sqlparse-0.6.1-py3-none-any.whl.metadata (6.9 kB)
+#9 9.261 Collecting starlette<2 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 9.419   Downloading starlette-1.10.0-py3-none-any.whl.metadata (6.6 kB)
+#9 9.513 Collecting typing-extensions<5,>=4.0.0 (from mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 9.655   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#9 9.744 Collecting typing-inspection>=0.4.2 (from fastapi==0.162.0->-r requirements-serving.txt (line 12))
+#9 9.885   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+#9 9.969 Collecting annotated-doc>=0.0.2 (from fastapi==0.162.0->-r requirements-serving.txt (line 12))
+#9 10.11   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+#9 10.20 Collecting h11>=0.8 (from uvicorn==0.54.0->-r requirements-serving.txt (line 13))
+#9 10.35   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#9 10.44 Collecting annotated-types>=0.6.0 (from pydantic==2.14.2->-r requirements-serving.txt (line 14))
+#9 10.58   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#9 11.05 Collecting pydantic-core==2.50.2 (from pydantic==2.14.2->-r requirements-serving.txt (line 14))
+#9 11.19   Downloading pydantic_core-2.50.2-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (6.5 kB)
+#9 11.28 Collecting joblib>=1.4.0 (from scikit-learn==1.9.1->-r requirements-serving.txt (line 6))
+#9 11.43   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+#9 11.54 Collecting narwhals>=2.0.1 (from scikit-learn==1.9.1->-r requirements-serving.txt (line 6))
+#9 11.68   Downloading narwhals-2.28.0-py3-none-any.whl.metadata (15 kB)
+#9 11.77 Collecting threadpoolctl>=3.5.0 (from scikit-learn==1.9.1->-r requirements-serving.txt (line 6))
+#9 11.92   Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+#9 12.01 Collecting python-dateutil>=2.9.0 (from pandas==3.1.0->-r requirements-serving.txt (line 9))
+#9 12.16   Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+#9 12.26 Collecting idna>=2.8 (from anyio!=4.15.0,<5,>=3.6.2->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 12.41   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#9 12.51 Collecting certifi>=2026.10.19 (from databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 12.65   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+#9 12.76 Collecting google-auth~=2.0 (from databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 12.92   Downloading google_auth-2.62.0-py3-none-any.whl.metadata (6.0 kB)
+#9 13.03 Collecting urllib3<3,>=1.26 (from databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 13.18   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#9 13.28 Collecting gitdb<5,>=4.0.1 (from gitpython<4,>=3.1.9->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 13.42   Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+#9 13.51 Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 13.66   Downloading smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+#9 13.75 Collecting pyasn1-modules>=0.2.1 (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 13.89   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+#9 14.07 Collecting cryptography>=38.0.3 (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 14.21   Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_aarch64.whl.metadata (4.4 kB)
+#9 14.30 Collecting zipp>=3.20 (from importlib_metadata!=4.7.0,<10,>=3.7.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 14.44   Downloading zipp-4.1.2-py3-none-any.whl.metadata (3.6 kB)
+#9 14.55 Collecting opentelemetry-semantic-conventions==0.66b2 (from opentelemetry-sdk<3,>=1.9.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 14.69   Downloading opentelemetry_semantic_conventions-0.66b2-py3-none-any.whl.metadata (2.4 kB)
+#9 14.85 Collecting charset_normalizer<4,>=2 (from requests<3,>=2.17.3->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 15.01   Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (46 kB)
+#9 15.15 Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 15.30   Downloading cffi-2.1.1-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (2.5 kB)
+#9 15.38 Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 15.53   Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+#9 15.63 Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.17.2->-r requirements-serving.txt (line 4))
+#9 15.77   Downloading pyasn1-0.6.5-py3-none-any.whl.metadata (8.4 kB)
+#9 15.86 Collecting tzdata (from python-dateutil>=2.9.0->pandas==3.1.0->-r requirements-serving.txt (line 9))
+#9 16.00   Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+#9 16.15 Downloading mlflow_skinny-3.17.2-py3-none-any.whl (4.1 MB)
+#9 16.71    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 MB 9.2 MB/s  0:00:00
+#9 16.86 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+#9 17.01 Downloading fastapi-0.162.0-py3-none-any.whl (148 kB)
+#9 17.16 Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+#9 17.30 Downloading pydantic-2.14.2-py3-none-any.whl (490 kB)
+#9 17.46 Downloading scikit_learn-1.9.1-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (8.8 MB)
+#9 17.76    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.8/8.8 MB 29.0 MB/s  0:00:00
+#9 17.95 Downloading xgboost_cpu-3.4.1-py3-none-manylinux_2_28_aarch64.whl (5.4 MB)
+#9 18.12    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 31.5 MB/s  0:00:00
+#9 18.28 Downloading lightgbm-4.7.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (3.3 MB)
+#9 18.34    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 58.1 MB/s  0:00:00
+#9 18.49 Downloading pandas-3.1.0-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl (11.4 MB)
+#9 18.84    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.4/11.4 MB 32.1 MB/s  0:00:00
+#9 18.99 Downloading numpy-2.5.4-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (15.7 MB)
+#9 19.50    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 30.9 MB/s  0:00:00
+#9 19.65 Downloading scipy-1.18.1-cp313-cp313-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (34.0 MB)
+#9 20.80    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.0/34.0 MB 29.6 MB/s  0:00:01
+#9 20.95 Downloading pydantic_core-2.50.2-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (2.1 MB)
+#9 20.99    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 49.3 MB/s  0:00:00
+#9 21.13 Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+#9 21.28 Downloading cachetools-7.2.8-py3-none-any.whl (19 kB)
+#9 21.43 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 21.58 Downloading databricks_sdk-0.159.0-py3-none-any.whl (1.1 MB)
+#9 21.61    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 40.1 MB/s  0:00:00
+#9 21.75 Downloading gitpython-3.2.1-py3-none-any.whl (231 kB)
+#9 21.90 Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+#9 22.06 Downloading google_auth-2.62.0-py3-none-any.whl (267 kB)
+#9 22.21 Downloading importlib_metadata-9.1.0-py3-none-any.whl (28 kB)
+#9 22.36 Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+#9 22.50 Downloading opentelemetry_proto-1.45.2-py3-none-any.whl (72 kB)
+#9 22.64 Downloading opentelemetry_sdk-1.45.2-py3-none-any.whl (141 kB)
+#9 22.79 Downloading opentelemetry_semantic_conventions-0.66b2-py3-none-any.whl (206 kB)
+#9 22.93 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#9 23.07 Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_aarch64.whl (344 kB)
+#9 23.22 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+#9 23.37 Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (767 kB)
+#9 23.39    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 767.1/767.1 kB 48.4 MB/s  0:00:00
+#9 23.54 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+#9 23.68 Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (244 kB)
+#9 23.83 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#9 23.97 Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+#9 24.11 Downloading sqlparse-0.6.1-py3-none-any.whl (51 kB)
+#9 24.25 Downloading starlette-1.10.0-py3-none-any.whl (80 kB)
+#9 24.40 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#9 24.55 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+#9 24.69 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+#9 24.84 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#9 24.99 Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+#9 25.14 Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_aarch64.whl (4.7 MB)
+#9 25.29    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 30.8 MB/s  0:00:00
+#9 25.44 Downloading cffi-2.1.1-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (222 kB)
+#9 25.58 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 25.72 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+#9 25.86 Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
+#9 26.02 Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+#9 26.16 Downloading pyasn1-0.6.5-py3-none-any.whl (84 kB)
+#9 26.31 Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+#9 26.46 Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+#9 26.60 Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+#9 26.74 Downloading zipp-4.1.2-py3-none-any.whl (10 kB)
+#9 26.89 Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+#9 27.04 Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+#9 27.29 Installing collected packages: zipp, urllib3, tzdata, typing-extensions, threadpoolctl, sqlparse, smmap, pyyaml, python-dotenv, pycparser, pyasn1, protobuf, packaging, numpy, narwhals, idna, h11, cloudpickle, click, charset_normalizer, certifi, cachetools, annotated-types, annotated-doc, uvicorn, typing-inspection, scipy, requests, python-dateutil, pydantic-core, pyasn1-modules, opentelemetry-proto, opentelemetry-api, joblib, importlib_metadata, gitdb, cffi, anyio, xgboost-cpu, starlette, scikit-learn, pydantic, pandas, opentelemetry-semantic-conventions, lightgbm, gitpython, cryptography, opentelemetry-sdk, google-auth, fastapi, databricks-sdk, mlflow-skinny
+#9 37.88 
+#9 37.88 Successfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.16.0 cachetools-7.2.8 certifi-2026.10.23 cffi-2.1.1 charset_normalizer-3.5.2 click-8.5.0 cloudpickle-3.1.2 cryptography-50.0.2 databricks-sdk-0.159.0 fastapi-0.162.0 gitdb-4.0.12 gitpython-3.2.1 google-auth-2.62.0 h11-0.16.0 idna-3.20 importlib_metadata-9.1.0 joblib-1.6.0 lightgbm-4.7.0 mlflow-skinny-3.17.2 narwhals-2.28.0 numpy-2.5.4 opentelemetry-api-1.45.2 opentelemetry-proto-1.45.2 opentelemetry-sdk-1.45.2 opentelemetry-semantic-conventions-0.66b2 packaging-26.3 pandas-3.1.0 protobuf-7.36.2 pyasn1-0.6.5 pyasn1-modules-0.4.2 pycparser-3.12 pydantic-2.14.2 pydantic-core-2.50.2 python-dateutil-4.0.0 python-dotenv-1.2.4 pyyaml-6.0.3 requests-2.34.2 scikit-learn-1.9.1 scipy-1.18.1 smmap-5.0.3 sqlparse-0.6.1 starlette-1.10.0 threadpoolctl-3.7.0 typing-extensions-4.16.0 typing-inspection-0.4.4 tzdata-2026.6 urllib3-2.8.0 uvicorn-0.54.0 xgboost-cpu-3.4.1 zipp-4.1.2
+#9 37.88 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 37.88 
+#9 37.88 [notice] A new release of pip is available: 26.2.2 -> 26.3
+#9 37.88 [notice] To update, run: pip install --upgrade pip
+#9 DONE 38.3s
+
+#10 [ 6/11] COPY src/__init__.py src/__init__.py
+#10 DONE 0.1s
+
+#11 [ 7/11] COPY src/common src/common
+#11 DONE 0.0s
+
+#12 [ 8/11] COPY src/serving/__init__.py src/serving/__init__.py
+#12 DONE 0.0s
+
+#13 [ 9/11] COPY src/serving/api.py src/serving/api.py
+#13 DONE 0.0s
+
+#14 [10/11] COPY src/serving/model src/serving/model
+#14 DONE 0.0s
+
+#15 [11/11] RUN useradd --create-home --uid 1000 app
+#15 DONE 0.1s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 8.2s done
+#16 exporting manifest sha256:2b28d2d6a97e9de879dfd3b302b87d2eadda92342837ffa2a7096822425193f8 done
+#16 exporting config sha256:5d1619091a69a20988ea144a3cafe1c6121482925dae3d0dbb35452446112e0c done
+#16 exporting attestation manifest sha256:fd0818f4bba1288b94e7bd3e6c897dc4178c91646ab7f86f134e2b349597bee5 done
+#16 exporting manifest list sha256:db97b53823aea84ccad87f3a7e871d21b8da2661e8a96998fe4c1a8ca8e35cb8 done
+#16 naming to docker.io/library/talento-sc-api:1.0 done
+#16 unpacking to docker.io/library/talento-sc-api:1.0
+#16 unpacking to docker.io/library/talento-sc-api:1.0 1.7s done
+#16 DONE 10.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/0av9m536ukwgbbf87uka8fsqq
