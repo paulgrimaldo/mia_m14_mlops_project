@@ -1,0 +1,6 @@
+deployment.apps/talento-api 
+REVISION  CHANGE-CAUSE
+1         <none>
+2         modelo talento-sc v2 (talento-sc-api:modelo-v2)
+3         modelo talento-sc v3 (talento-sc-api:modelo-v3)
+

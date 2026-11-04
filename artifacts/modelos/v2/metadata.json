@@ -1,0 +1,25 @@
+{
+  "modelo": "talento-sc",
+  "alias": null,
+  "uri": "models:/talento-sc/2",
+  "version": "2",
+  "run_id": "845a8313fcc24425b9866cee4d191939",
+  "run_name": "xgb_mice_d3",
+  "experimento_id": "1",
+  "version_datos": "datos-v1",
+  "umbral": 0.3868,
+  "metricas": {
+    "val_f1": 0.6307,
+    "val_precision": 0.5362,
+    "val_recall": 0.7655,
+    "val_roc_auc": 0.9,
+    "val_pr_auc": 0.644,
+    "test_f1": 0.6221,
+    "test_precision": 0.5284,
+    "test_recall": 0.7562,
+    "test_roc_auc": 0.9164,
+    "test_pr_auc": 0.7354,
+    "val_nrmse_imputacion": 0.3011
+  },
+  "mlflow_version": "3.17.2"
+}

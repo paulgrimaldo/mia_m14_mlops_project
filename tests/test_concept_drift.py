@@ -5,7 +5,7 @@ import pytest
 
 from src.drift import concepto as C
 
-MODELO = Path(__file__).resolve().parents[1] / "src" / "serving" / "model" / "metadata.json"
+MODELO = C.MODELO_DIR / "metadata.json"
 
 
 def test_criterio_no_dispara_con_una_caida_aislada():

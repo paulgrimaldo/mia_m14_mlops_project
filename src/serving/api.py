@@ -76,7 +76,8 @@ def health():
 @app.get("/info")
 def info():
     return {"pod": POD, **{k: META[k] for k in ("modelo", "alias", "version", "run_id", "run_name", "umbral",
-                                                  "mlflow_version")}, "metricas": META["metricas"]}
+                                                  "mlflow_version")},
+            "version_datos": META.get("version_datos"), "metricas": META["metricas"]}
 
 
 @app.post("/predecir", response_model=Respuesta)

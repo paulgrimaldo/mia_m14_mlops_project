@@ -27,7 +27,9 @@ from src.drift.detectores import evaluar_lote  # noqa: E402
 RAIZ = Path(__file__).resolve().parents[2]
 PROC = RAIZ / "data" / "processed"
 EVID = RAIZ / "docs" / "evidencias"
-MODELO_DIR = RAIZ / "src" / "serving" / "model"
+# El modelo que estaba en producción durante el flujo 2026 (v2, datos-v1), congelado con
+# `exportar_modelo --version 2`: el análisis no cambia aunque el champion actual sea otro.
+MODELO_DIR = RAIZ / "artifacts" / "modelos" / "v2"
 
 CAIDA = 0.10      # caída absoluta de F1 respecto al baseline
 K_LOTES = 3       # lotes consecutivos

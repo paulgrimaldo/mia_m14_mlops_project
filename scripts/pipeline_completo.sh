@@ -10,6 +10,7 @@ $PY -m src.data.generar_datos
 $PY -m src.data.limpiar_ofuscar > /dev/null
 $PY -m src.training.train
 $PY -m src.serving.exportar_modelo > /dev/null
+$PY -m src.serving.exportar_modelo --version 2 --destino artifacts/modelos/v2 > /dev/null  # copia congelada para el análisis de drift
 $PY -m src.drift.calibrar_umbrales > /dev/null
 $PY -m src.drift.concepto
 $PY -m src.training.reentrenar

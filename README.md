@@ -13,7 +13,7 @@ llevado desde el entrenamiento hasta un despliegue **reproducible y observable**
 | Requisito | Dónde está | Evidencia |
 |---|---|---|
 | Fase 1 · entrenamiento reproducible (seed, split documentado), ≥5 runs | [src/training/train.py](src/training/train.py) (8 runs) | [mlflow_runs.csv](docs/evidencias/mlflow_runs.csv) |
-| MLflow: tracking + Model Registry, >1 versión, alias de despliegue | `talento-sc` v1 (LightGBM) y v2 (XGBoost), alias `champion` → v2 | [mlflow_registry.txt](docs/evidencias/mlflow_registry.txt) |
+| MLflow: tracking + Model Registry, >1 versión, alias de despliegue | `talento-sc` v1, v2 (datos-v1) y v3 (datos-v2); alias `champion` → v3, `anterior` → v2 | [mlflow_registry.txt](docs/evidencias/mlflow_registry.txt) |
 | Servicio consume el registry por alias, no por ruta suelta | [src/serving/exportar_modelo.py](src/serving/exportar_modelo.py) (`models:/talento-sc@champion`) + [api.py](src/serving/api.py) | `/info` devuelve versión y run |
 | Fase 2 · Dockerfile propio, deps fijadas con versión de MLflow | [Dockerfile](Dockerfile), [requirements-serving.txt](requirements-serving.txt) | [docker_build.txt](docs/evidencias/docker_build.txt) |
 | Fase 3 · K8s ≥3 réplicas + 4 demostraciones | [k8s/](k8s/), [scripts/demo_k8s.sh](scripts/demo_k8s.sh) | [k8s_demos.txt](docs/evidencias/k8s_demos.txt) |
@@ -33,6 +33,8 @@ scripts/pipeline_completo.sh        # datos -> limpieza/ofuscación -> MLflow ->
 
 kubectl apply -f k8s/namespace.yaml -f k8s/deployment.yaml -f k8s/service.yaml
 scripts/construir_y_desplegar.sh   # exporta el champion, imagen talento-sc-api:modelo-vN, carga al nodo y rolling update
+.venv/bin/python -m src.training.promover --version 3 --motivo "concept drift"   # v3 -> champion (v2 -> anterior)
+scripts/construir_y_desplegar.sh   # rolling update a modelo-v3
 curl localhost:8080/info
 scripts/demo_k8s.sh                 # las 4 demostraciones (+ guarda evidencia)
 

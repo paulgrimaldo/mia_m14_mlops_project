@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: talento-sc-api:modelo-v2   # tag = versión del Model Registry (scripts/construir_y_desplegar.sh)
+          image: talento-sc-api:modelo-v3  # tag = versión del Model Registry (scripts/construir_y_desplegar.sh)
           imagePullPolicy: IfNotPresent   # imagen construida localmente
           ports:
             - containerPort: 8000

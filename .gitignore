@@ -11,3 +11,4 @@ data/raw/
 data/processed/importancias_tmp.csv
 mlflow_server.log
 entrega/
+docs/GUIA_DEFENSA.md

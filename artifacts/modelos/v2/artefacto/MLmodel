@@ -1,0 +1,47 @@
+artifact_path: mlflow-artifacts:/1/models/m-43cbdc71e77b4b45b85b29306e7a40fb/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.1
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.17.2
+model_id: m-43cbdc71e77b4b45b85b29306e7a40fb
+model_size_bytes: 561112
+model_uuid: m-43cbdc71e77b4b45b85b29306e7a40fb
+prompts: null
+run_id: 845a8313fcc24425b9866cee4d191939
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "categoria_sub", "required": true}, {"type":
+    "double", "name": "edad_anios", "required": true}, {"type": "double", "name":
+    "altura_cm", "required": false}, {"type": "double", "name": "peso_kg", "required":
+    false}, {"type": "double", "name": "imc", "required": false}, {"type": "double",
+    "name": "sprint_30m_s", "required": false}, {"type": "double", "name": "salto_cmj_cm",
+    "required": false}, {"type": "double", "name": "yoyo_m", "required": false}, {"type":
+    "double", "name": "agilidad_s", "required": false}, {"type": "double", "name":
+    "tecnica_score", "required": false}, {"type": "double", "name": "partidos", "required":
+    false}, {"type": "double", "name": "goles", "required": false}, {"type": "double",
+    "name": "asistencias", "required": false}, {"type": "double", "name": "ppm_equipo",
+    "required": false}, {"type": "double", "name": "anios_en_academia", "required":
+    false}, {"type": "string", "name": "genero", "required": true}, {"type": "string",
+    "name": "posicion", "required": true}, {"type": "long", "name": "trimestre_nacimiento",
+    "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float32", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-11-04 14:27:37.630922'

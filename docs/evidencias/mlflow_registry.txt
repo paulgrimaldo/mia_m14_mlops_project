@@ -12,11 +12,11 @@ d47c4f1757f1417cad21fe1c6f40099c          lgbm_mice_l15      datos-v1 lightgbm  
 9051ee57636b474e8ba0200c9676f6e2   lgbm_sin_imputar_l15      datos-v1 lightgbm    ninguna  0.5744   0.5988       0.6062          0.5915    0.8993               NaN 0.5065
 
 MODEL REGISTRY: talento-sc
-  v3  alias=['challenger']  run_id=07939995e4c1458f9f947a583af64542  tags={'familia': 'xgboost', 'val_f1': '0.6562', 'version_datos': 'datos-v2', 'reemplaza_a': 'v2'}
+  v3  alias=['champion']  run_id=07939995e4c1458f9f947a583af64542  tags={'familia': 'xgboost', 'val_f1': '0.6562', 'version_datos': 'datos-v2', 'reemplaza_a': 'v2', 'promovido': '2026-11-04 - concept drift detectado en lote 9; F1 0.519 vs 0.401 en datos-v2'}
        datasets: datos-v2-train(digest 2cbace0b), datos-v2-val(digest 098481ed), datos-v2-test(digest b7643e22)
-  v2  alias=['champion']  run_id=845a8313fcc24425b9866cee4d191939  tags={'familia': 'xgboost', 'val_f1': '0.6307'}
+  v2  alias=['anterior']  run_id=845a8313fcc24425b9866cee4d191939  tags={'familia': 'xgboost', 'val_f1': '0.6307', 'retirado': '2026-11-04 - reemplazado por v3'}
        datasets: datos-v1-train(digest 71ab6124), datos-v1-val(digest 658f9f09), datos-v1-test(digest d6ce3e77)
   v1  alias=[]  run_id=b26080b0d5914a54ba19917b1c978865  tags={'familia': 'lightgbm', 'val_f1': '0.6190'}
        datasets: datos-v1-train(digest 71ab6124), datos-v1-val(digest 658f9f09), datos-v1-test(digest d6ce3e77)
 
-VERSIÓN DESPLEGADA: talento-sc v2 (alias champion) <- run 845a8313fcc24425b9866cee4d191939 (xgb_mice_d3)
+VERSIÓN DESPLEGADA: talento-sc v3 (alias champion) <- run 07939995e4c1458f9f947a583af64542 (xgb_mice_d3_reentreno)
