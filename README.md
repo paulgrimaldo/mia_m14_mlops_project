@@ -19,6 +19,7 @@ llevado desde el entrenamiento hasta un despliegue **reproducible y observable**
 | Fase 3 · K8s ≥3 réplicas + 4 demostraciones | [k8s/](k8s/), [scripts/demo_k8s.sh](scripts/demo_k8s.sh) | [k8s_demos.txt](docs/evidencias/k8s_demos.txt) |
 | Data drift (KS, PSI, umbral, verde/rojo) | [src/drift/detectores.py](src/drift/detectores.py), [tests/test_data_drift.py](tests/test_data_drift.py) | [data_drift_reporte.txt](docs/evidencias/data_drift_reporte.txt), [png](docs/evidencias/data_drift_verde_vs_rojo.png), [calibración](docs/evidencias/calibracion_data_drift.json) |
 | Concept drift (gráfica temporal, criterio de reentrenamiento, retraso de etiquetas) | [src/drift/concepto.py](src/drift/concepto.py), [tests/test_concept_drift.py](tests/test_concept_drift.py) | [concept_drift.png](docs/evidencias/concept_drift.png) |
+| Versionado de datos (datos-v1 / datos-v2) y reentrenamiento (v3 challenger) | [src/training/datos_versionados.py](src/training/datos_versionados.py), [reentrenar.py](src/training/reentrenar.py), [data/versiones.json](data/versiones.json), tags de git | [reentrenamiento.json](docs/evidencias/reentrenamiento.json) |
 | Documento de arquitectura + versión desplegada ↔ run | [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) | — |
 | Tabla de reparto de trabajo | [docs/REPARTO_TRABAJO.md](docs/REPARTO_TRABAJO.md) | `git log` |
 | Extra · UI contra el servicio en K8s | [ui/app.py](ui/app.py) (Streamlit) | — |
@@ -27,12 +28,11 @@ llevado desde el entrenamiento hasta un despliegue **reproducible y observable**
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-scripts/pipeline_completo.sh        # datos -> limpieza/ofuscación -> MLflow -> registro -> exportar champion -> drift
+scripts/pipeline_completo.sh        # datos -> limpieza/ofuscación -> MLflow -> registro -> exportar champion -> drift -> reentrenamiento (v3)
 .venv/bin/pytest -q                 # 36 pruebas (data drift + concept drift)
 
-docker build -t talento-sc-api:1.0 .
-docker save talento-sc-api:1.0 | docker exec -i desktop-control-plane ctr -n k8s.io images import -   # cargar imagen al nodo
 kubectl apply -f k8s/namespace.yaml -f k8s/deployment.yaml -f k8s/service.yaml
+scripts/construir_y_desplegar.sh   # exporta el champion, imagen talento-sc-api:modelo-vN, carga al nodo y rolling update
 curl localhost:8080/info
 scripts/demo_k8s.sh                 # las 4 demostraciones (+ guarda evidencia)
 

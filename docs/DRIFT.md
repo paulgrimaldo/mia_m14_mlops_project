@@ -60,5 +60,5 @@ decidiendo con la regla vieja. Qué haría el equipo mientras tanto:
 2. **Vigilar la salida del modelo**: tasa de positivos predichos y distribución de scores (cambian si los scouts empiezan a contradecir al modelo).
 3. **Etiquetado muestral rápido**: los scouts validan una muestra aleatoria del 5–10 % de cada lote al instante (F1 ruidoso, pero con ventana de varios lotes sirve de alerta temprana).
 4. **Señales proxy**: tasa de sobreescritura del modelo por scouts, convocatorias tempranas, resultados de la siguiente copa.
-5. **Champion-challenger en sombra**: entrenar un challenger con las etiquetas más recientes y compararlo en paralelo; promoverlo (alias `champion`) cuando supere al actual.
+5. **Champion-challenger en sombra**: entrenar un challenger con las etiquetas más recientes y compararlo en paralelo; promoverlo (alias `champion`) cuando supere al actual. **Implementado**: `python -m src.training.reentrenar` arma `datos-v2` (lotes 7-9 / 10 / 11-12) y registra **v3 `challenger`**: F1 0.519 vs 0.401 del champion sobre el mismo test ([reentrenamiento.json](evidencias/reentrenamiento.json)).
 6. **Decisiones reversibles**: usar el modelo para *priorizar* la lista de scouting, no para descartar jugadores, mientras no haya etiquetas frescas.

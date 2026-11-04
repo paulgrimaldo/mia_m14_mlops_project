@@ -1,104 +1,104 @@
-Evidencia generada el 2026-11-02 22:54:25  ·  contexto: docker-desktop
+Evidencia generada el 2026-11-04 10:29:53  ·  contexto: docker-desktop
 
 =================== DEMO 1 - 3+ réplicas en estado Running simultáneamente ===================
 NAME          READY   UP-TO-DATE   AVAILABLE   AGE
-talento-api   3/3     3            3           29s
+talento-api   3/3     3            3           35h
 NAME                           READY   STATUS    RESTARTS   AGE   IP            NODE                    NOMINATED NODE   READINESS GATES
-talento-api-8554758599-7lvd6   1/1     Running   0          29s   10.244.0.19   desktop-control-plane   <none>           <none>
-talento-api-8554758599-86qms   1/1     Running   0          29s   10.244.0.21   desktop-control-plane   <none>           <none>
-talento-api-8554758599-dptdm   1/1     Running   0          29s   10.244.0.20   desktop-control-plane   <none>           <none>
+talento-api-76dbfb5f67-5wq6m   1/1     Running   0          36s   10.244.0.27   desktop-control-plane   <none>           <none>
+talento-api-76dbfb5f67-gqh95   1/1     Running   0          30s   10.244.0.28   desktop-control-plane   <none>           <none>
+talento-api-76dbfb5f67-sx5hg   1/1     Running   0          42s   10.244.0.26   desktop-control-plane   <none>           <none>
 
 =================== DEMO 2 - El tráfico se reparte entre pods (20 peticiones POST /predecir a http://localhost:8080) ===================
-pod=talento-api-8554758599-86qms  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-dptdm  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-dptdm  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-86qms  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-86qms  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-86qms  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-dptdm  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-dptdm  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-86qms  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-86qms  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-7lvd6  modelo=v2 run=e94d8168
-pod=talento-api-8554758599-dptdm  modelo=v2 run=e94d8168
+pod=talento-api-76dbfb5f67-5wq6m  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-5wq6m  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-sx5hg  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-sx5hg  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-sx5hg  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-5wq6m  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-sx5hg  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-sx5hg  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-sx5hg  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-sx5hg  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-5wq6m  modelo=v2 run=845a8313
+pod=talento-api-76dbfb5f67-gqh95  modelo=v2 run=845a8313
 --- resumen: peticiones atendidas por pod
-   9 pod=talento-api-8554758599-7lvd6
-   6 pod=talento-api-8554758599-86qms
-   5 pod=talento-api-8554758599-dptdm
+   4 pod=talento-api-76dbfb5f67-5wq6m
+   9 pod=talento-api-76dbfb5f67-gqh95
+   7 pod=talento-api-76dbfb5f67-sx5hg
 
 =================== DEMO 3 - Autorreparación: se elimina un pod mientras se sigue consultando el servicio ===================
->> 22:54:29 eliminando pod: talento-api-8554758599-7lvd6
-pod "talento-api-8554758599-7lvd6" deleted from talento-sc namespace
---- 22:54:31
+>> 10:29:57 eliminando pod: talento-api-76dbfb5f67-5wq6m
+pod "talento-api-76dbfb5f67-5wq6m" deleted from talento-sc namespace
+--- 10:29:59
 NAME                           READY   STATUS    RESTARTS   AGE
-talento-api-8554758599-86qms   1/1     Running   0          35s
-talento-api-8554758599-dptdm   1/1     Running   0          35s
-talento-api-8554758599-hnqjs   0/1     Running   0          2s
---- 22:54:33
+talento-api-76dbfb5f67-gqh95   1/1     Running   0          36s
+talento-api-76dbfb5f67-lw6vr   0/1     Running   0          3s
+talento-api-76dbfb5f67-sx5hg   1/1     Running   0          48s
+--- 10:30:02
 NAME                           READY   STATUS    RESTARTS   AGE
-talento-api-8554758599-86qms   1/1     Running   0          37s
-talento-api-8554758599-dptdm   1/1     Running   0          37s
-talento-api-8554758599-hnqjs   0/1     Running   0          4s
---- 22:54:35
+talento-api-76dbfb5f67-gqh95   1/1     Running   0          38s
+talento-api-76dbfb5f67-lw6vr   0/1     Running   0          5s
+talento-api-76dbfb5f67-sx5hg   1/1     Running   0          50s
+--- 10:30:04
 NAME                           READY   STATUS    RESTARTS   AGE
-talento-api-8554758599-86qms   1/1     Running   0          39s
-talento-api-8554758599-dptdm   1/1     Running   0          39s
-talento-api-8554758599-hnqjs   1/1     Running   0          6s
---- 22:54:37
+talento-api-76dbfb5f67-gqh95   1/1     Running   0          40s
+talento-api-76dbfb5f67-lw6vr   1/1     Running   0          7s
+talento-api-76dbfb5f67-sx5hg   1/1     Running   0          52s
+--- 10:30:06
 NAME                           READY   STATUS    RESTARTS   AGE
-talento-api-8554758599-86qms   1/1     Running   0          41s
-talento-api-8554758599-dptdm   1/1     Running   0          41s
-talento-api-8554758599-hnqjs   1/1     Running   0          8s
+talento-api-76dbfb5f67-gqh95   1/1     Running   0          42s
+talento-api-76dbfb5f67-lw6vr   1/1     Running   0          9s
+talento-api-76dbfb5f67-sx5hg   1/1     Running   0          54s
 --- códigos HTTP recibidos durante la prueba (60 peticiones):
   60 200
 --- peticiones fallidas (si las hubo):
 ninguna
 NAME                           READY   STATUS    RESTARTS   AGE
-talento-api-8554758599-86qms   1/1     Running   0          48s
-talento-api-8554758599-dptdm   1/1     Running   0          48s
-talento-api-8554758599-hnqjs   1/1     Running   0          15s
+talento-api-76dbfb5f67-gqh95   1/1     Running   0          48s
+talento-api-76dbfb5f67-lw6vr   1/1     Running   0          15s
+talento-api-76dbfb5f67-sx5hg   1/1     Running   0          60s
 
 =================== DEMO 4 - Escalado: 3 -> 5 -> 2 -> 3 réplicas ===================
 >> kubectl scale --replicas=5
 deployment.apps/talento-api scaled
 NAME          READY   UP-TO-DATE   AVAILABLE   AGE
-talento-api   5/5     5            5           58s
-   talento-api-8554758599-6q922 Running
-   talento-api-8554758599-86qms Running
-   talento-api-8554758599-dptdm Running
-   talento-api-8554758599-hnqjs Running
-   talento-api-8554758599-qjksl Running
+talento-api   5/5     5            5           35h
+   talento-api-76dbfb5f67-29vg6 Running
+   talento-api-76dbfb5f67-djlm2 Running
+   talento-api-76dbfb5f67-gqh95 Running
+   talento-api-76dbfb5f67-lw6vr Running
+   talento-api-76dbfb5f67-sx5hg Running
    pods distintos que responden a 20 peticiones:
-   4 talento-api-8554758599-6q922
-   2 talento-api-8554758599-86qms
-   4 talento-api-8554758599-dptdm
-   8 talento-api-8554758599-hnqjs
-   2 talento-api-8554758599-qjksl
+   5 talento-api-76dbfb5f67-29vg6
+   2 talento-api-76dbfb5f67-djlm2
+   7 talento-api-76dbfb5f67-gqh95
+   2 talento-api-76dbfb5f67-lw6vr
+   4 talento-api-76dbfb5f67-sx5hg
 >> kubectl scale --replicas=2
 deployment.apps/talento-api scaled
 NAME          READY   UP-TO-DATE   AVAILABLE   AGE
-talento-api   2/2     2            2           63s
-   talento-api-8554758599-86qms Running
-   talento-api-8554758599-dptdm Running
+talento-api   2/2     2            2           35h
+   talento-api-76dbfb5f67-gqh95 Running
+   talento-api-76dbfb5f67-sx5hg Running
    pods distintos que responden a 20 peticiones:
-   8 talento-api-8554758599-86qms
-  12 talento-api-8554758599-dptdm
+  10 talento-api-76dbfb5f67-gqh95
+  10 talento-api-76dbfb5f67-sx5hg
 >> kubectl scale --replicas=3
 deployment.apps/talento-api scaled
 NAME          READY   UP-TO-DATE   AVAILABLE   AGE
-talento-api   3/3     3            3           73s
-   talento-api-8554758599-727tm Running
-   talento-api-8554758599-86qms Running
-   talento-api-8554758599-dptdm Running
+talento-api   3/3     3            3           35h
+   talento-api-76dbfb5f67-gqh95 Running
+   talento-api-76dbfb5f67-ssscd Running
+   talento-api-76dbfb5f67-sx5hg Running
    pods distintos que responden a 20 peticiones:
-   9 talento-api-8554758599-727tm
-   5 talento-api-8554758599-86qms
-   6 talento-api-8554758599-dptdm
+  10 talento-api-76dbfb5f67-gqh95
+   7 talento-api-76dbfb5f67-ssscd
+   3 talento-api-76dbfb5f67-sx5hg
