@@ -2,7 +2,7 @@
   "modelo": "talento-sc",
   "alias": "champion",
   "version": "2",
-  "run_id": "e94d8168b64b4c128eda37c93a0894cd",
+  "run_id": "845a8313fcc24425b9866cee4d191939",
   "run_name": "xgb_mice_d3",
   "experimento_id": "1",
   "umbral": 0.3868,
