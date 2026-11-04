@@ -31,6 +31,7 @@ from sklearn.preprocessing import OneHotEncoder
 from xgboost import XGBClassifier
 
 from src.common.features import CATEGORICAS, FEATURES, NUMERICAS, TARGET
+from src.training.datos_versionados import loguear_en_run, registrar_version
 
 matplotlib.use("Agg")
 warnings.filterwarnings("ignore")
@@ -38,6 +39,8 @@ warnings.filterwarnings("ignore")
 SEED = 42
 RAIZ = Path(__file__).resolve().parents[2]
 PROC = RAIZ / "data" / "processed"
+VERSION_DATOS = "datos-v1"
+RUTAS_V1 = {k: PROC / f"{k}.csv" for k in ("train", "val", "test")}
 NOMBRE_MODELO = "talento-sc"
 EXPERIMENTO = "talento-sc-deteccion"
 TRACKING = os.environ.get("MLFLOW_TRACKING_URI", "http://127.0.0.1:5000")
@@ -127,9 +130,11 @@ def nrmse_imputacion(pipe, Xv, frac=0.25):
     return float(np.mean(errs))
 
 
-def entrenar_run(nombre, familia, imput, ctor, hp, d):
+def entrenar_run(nombre, familia, imput, ctor, hp, d, datos):
+    """`datos` = (version, {split: DataFrame}, {split: ruta}) -> se registra en el run."""
     Xtr, ytr, Xva, yva, Xte, yte = d
     with mlflow.start_run(run_name=nombre) as run:
+        loguear_en_run(*datos)
         mlflow.set_tags({"familia": familia, "imputacion": imput, "split": "70/15/15 agrupado por jugador",
                          "registrable": "si" if imput == "mice" else "no", "datos": "sintetico"})
         mlflow.log_params({**hp, "imputacion": imput, "seed": SEED, "scale_pos_weight": 3,
@@ -199,7 +204,9 @@ def main():
     ys = {k: v[TARGET].astype(int) for k, v in parts.items()}
     d = (Xs["train"], ys["train"], Xs["val"], ys["val"], Xs["test"], ys["test"])
     print(f"train={len(d[0])} val={len(d[2])} test={len(d[4])}  tasa talento train={d[1].mean():.3f}")
-    resultados = [entrenar_run(*r, d) for r in RUNS]
+    registrar_version(VERSION_DATOS, RUTAS_V1, "Temporadas 2021-2025 (criterio de scouting tradicional), split 70/15/15 agrupado por jugador")
+    datos = (VERSION_DATOS, parts, RUTAS_V1)
+    resultados = [entrenar_run(*r, d, datos) for r in RUNS]
     registrar_mejores(resultados)
 
 
