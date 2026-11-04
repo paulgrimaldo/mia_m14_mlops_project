@@ -1,0 +1,42 @@
+{
+  "datos-v1": {
+    "descripcion": "Temporadas 2021-2025 (criterio de scouting tradicional), split 70/15/15 agrupado por jugador",
+    "archivos": {
+      "train": {
+        "ruta": "data/processed/train.csv",
+        "sha256": "55e001f315f923ce075ef12269e31c2669886309ef6323e33655e4479d2d84b4",
+        "filas": 4841
+      },
+      "val": {
+        "ruta": "data/processed/val.csv",
+        "sha256": "58665bfbe0949b4707ee55e6c575bade9e9ae4c50d802c836a9f906b411e4408",
+        "filas": 988
+      },
+      "test": {
+        "ruta": "data/processed/test.csv",
+        "sha256": "866c91f99777e7dab6e68ed660d2ced693e75b20ed9982779e2c5e224ef09589",
+        "filas": 1062
+      }
+    }
+  },
+  "datos-v2": {
+    "descripcion": "Flujo 2026, lotes [7, 8, 9]/[10]/[11, 12] (train/val/test) etiquetados con el criterio nuevo de scouting",
+    "archivos": {
+      "train": {
+        "ruta": "data/versiones/datos-v2/train.csv",
+        "sha256": "e4e2ab0afcc12891b33fe7a14edf215265319b2c8e964e862a7ae23d9055ba83",
+        "filas": 1200
+      },
+      "val": {
+        "ruta": "data/versiones/datos-v2/val.csv",
+        "sha256": "3c49e375b7741da8994cd965d417ed2e26d46432f16900f4d154e5874d8df8b9",
+        "filas": 400
+      },
+      "test": {
+        "ruta": "data/versiones/datos-v2/test.csv",
+        "sha256": "f713f4df36b9be414e13d39c4e87607e28ca45f32920d8b29685af70b708b0eb",
+        "filas": 800
+      }
+    }
+  }
+}

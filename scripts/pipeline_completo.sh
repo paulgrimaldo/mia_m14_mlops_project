@@ -12,3 +12,4 @@ $PY -m src.training.train
 $PY -m src.serving.exportar_modelo > /dev/null
 $PY -m src.drift.calibrar_umbrales > /dev/null
 $PY -m src.drift.concepto
+$PY -m src.training.reentrenar

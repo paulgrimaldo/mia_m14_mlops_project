@@ -1,0 +1,10 @@
+{
+  "version_datos": "datos-v2",
+  "modelo_nuevo": "v3",
+  "run_id": "07939995e4c1458f9f947a583af64542",
+  "familia": "xgboost",
+  "test_f1_nuevo": 0.519,
+  "champion_vigente": "v2",
+  "test_f1_champion_vigente": 0.401,
+  "decision": "queda como challenger"
+}
